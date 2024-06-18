@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PlayerProfile from './components/PlayerProfile';
+import TournamentList from './components/TournamentList';
+import TournamentDetails from './components/TournamentDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Routes>
+          <Route path='/player/:id' element={<PlayerProfile/>} />
+          <Route path='/tournament/:id' element={<TournamentDetails/>} />
+          <Route path='/' element={<TournamentList/>} />
+        </Routes>
+      </Router>
   );
 }
 

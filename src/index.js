@@ -3,7 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {  createTheme } from '@mui/material/styles';
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#1e90ff',
+        },
+        background: {
+            default: '#1b1b1b',
+            paper: '#2c2c2c',
+        },
+        text: {
+            primary: '#ffffff',
+            secondary: '#ffffff',
+        },
+    },
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "//Stoian256.github.io/fe-tennis-tournament/static/css/main.243ec1d1.css",
+    "main.js": "//Stoian256.github.io/fe-tennis-tournament/static/js/main.aa35cc9e.js",
+    "static/js/453.2a82da53.chunk.js": "//Stoian256.github.io/fe-tennis-tournament/static/js/453.2a82da53.chunk.js",
+    "index.html": "//Stoian256.github.io/fe-tennis-tournament/index.html",
+    "main.243ec1d1.css.map": "//Stoian256.github.io/fe-tennis-tournament/static/css/main.243ec1d1.css.map",
+    "main.aa35cc9e.js.map": "//Stoian256.github.io/fe-tennis-tournament/static/js/main.aa35cc9e.js.map",
+    "453.2a82da53.chunk.js.map": "//Stoian256.github.io/fe-tennis-tournament/static/js/453.2a82da53.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.243ec1d1.css",
+    "static/js/main.aa35cc9e.js"
+  ]
+}

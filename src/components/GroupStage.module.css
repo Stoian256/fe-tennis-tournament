@@ -1,0 +1,41 @@
+/* GroupStage.module.css */
+.groupPaper {
+    justify-content: center; /* Centrează conținutul */
+    margin-left: 20%; /* Spațiu liber de 20% pe partea stângă */
+    margin-right: 20%; /* Spațiu liber de 20% pe partea dreaptă */
+    margin-bottom: 40px; /* Spațiu între grupe */
+}
+
+.tableContainer {
+    overflow-x: auto; /* Permit scroll orizontal dacă conținutul este prea larg */
+}
+
+.tableContainer table {
+    width: 100%; /* Tabelul ocupă 100% din lățimea containerului său */
+    max-width: 100%; /* Lățimea maximă a tabelului să fie 100% din container */
+}
+
+.highlightedRow {
+    background-color: turquoise;
+    transition: background-color 0.3s ease;
+}
+
+.flagContainer {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.hiddenCell {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+}

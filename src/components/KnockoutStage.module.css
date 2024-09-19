@@ -1,0 +1,46 @@
+/* KnockoutStage.module.css */
+
+.knockoutStage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.seedItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+}
+
+.seedItem2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    background-color: white; /* White background */
+    border: 3px solid black; /* Black border */
+    color: black; /* Black text */
+    border-radius: 8px; /* Rounded corners (optional) */
+}
+
+.seedItem .MuiAvatar-root {
+    width: 20px; /* Smaller size for avatars */
+    height: 20px; /* Smaller size for avatars */
+    margin-right: 8px; /* Space between avatar and text */
+}
+
+.seedItem .winner {
+    font-weight: bold; /* Highlight the winning team */
+}
+
+.seedItem span {
+    display: flex;
+    align-items: center; /* Align text and avatar horizontally */
+}
+
+.SeedTeam {
+    display: flex;
+    align-items: center;
+    padding: 5px 0; /* Space between teams */
+    width: 100%; /* Ensure teams occupy the full width */
+}

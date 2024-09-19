@@ -1,0 +1,28 @@
+/* PlayerProfile.module.css */
+
+.root {
+    flex-grow: 1;
+}
+
+.card {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.largeAvatar {
+    width: 200px;
+    height: 200px;
+}
+
+.flag {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+}

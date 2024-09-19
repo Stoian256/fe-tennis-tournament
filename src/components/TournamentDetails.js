@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Card, CardContent, Typography, Divider } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {Divider, Grid, CircularProgress} from '@mui/material';
 import GroupStage from './GroupStage';
 import KnockoutStage from './KnockoutStage';
-
+import '../styles.css';
 
 function TournamentDetails() {
-    const { id } = useParams();
+    const {id} = useParams();
     const [tournament, setTournament] = useState(null);
-
+    const [loading, setLoading] = useState(true);
     const data = {
         "name": "Ping Pong Championship",
         "description": "Exciting ping pong tournament",
@@ -18,55 +18,47 @@ function TournamentDetails() {
                 "players": [
                     {
                         "id": 1,
-                        "name": "Player 1",
-                        "flag": "flag1.png",
+                        "name": "Ma Long",
+                        "flag": "../china.png",
                         "p": 3,
                         "w": 3,
-                        "d": 0,
                         "l": 0,
-                        "gs": 6,
-                        "ga": 2,
-                        "gd": 4,
-                        "pts": 9
+                        "sets_won": 9,
+                        "sets_lost": 2,
+                        "points": 9
                     },
                     {
                         "id": 2,
-                        "name": "Player 2",
-                        "flag": "flag2.png",
+                        "name": "Timo Boll",
+                        "flag": "../germany.png",
                         "p": 3,
                         "w": 2,
-                        "d": 0,
                         "l": 1,
-                        "gs": 5,
-                        "ga": 3,
-                        "gd": 2,
-                        "pts": 6
+                        "sets_won": 7,
+                        "sets_lost": 4,
+                        "points": 6
                     },
                     {
                         "id": 3,
-                        "name": "Player 3",
-                        "flag": "flag3.png",
+                        "name": "Jun Mizutani",
+                        "flag": "../japan.png",
                         "p": 3,
                         "w": 1,
-                        "d": 0,
                         "l": 2,
-                        "gs": 3,
-                        "ga": 5,
-                        "gd": -2,
-                        "pts": 3
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
                     },
                     {
                         "id": 4,
-                        "name": "Player 4",
-                        "flag": "flag4.png",
+                        "name": "Gustavo Tsuboi",
+                        "flag": "../brazil.png",
                         "p": 3,
                         "w": 0,
-                        "d": 0,
                         "l": 3,
-                        "gs": 2,
-                        "ga": 6,
-                        "gd": -4,
-                        "pts": 0
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
                     }
                 ]
             },
@@ -75,106 +67,425 @@ function TournamentDetails() {
                 "players": [
                     {
                         "id": 5,
-                        "name": "Player 5",
-                        "flag": "flag5.png",
+                        "name": "Fan Zhendong",
+                        "flag": "../china.png",
                         "p": 3,
-                        "w": 2,
-                        "d": 1,
+                        "w": 3,
                         "l": 0,
-                        "gs": 5,
-                        "ga": 2,
-                        "gd": 3,
-                        "pts": 7
+                        "sets_won": 9,
+                        "sets_lost": 1,
+                        "points": 9
                     },
                     {
                         "id": 6,
-                        "name": "Player 6",
-                        "flag": "flag6.png",
+                        "name": "Dimitrij Ovtcharov",
+                        "flag": "../germany.png",
                         "p": 3,
-                        "w": 1,
-                        "d": 1,
+                        "w": 2,
                         "l": 1,
-                        "gs": 4,
-                        "ga": 3,
-                        "gd": 1,
-                        "pts": 4
+                        "sets_won": 7,
+                        "sets_lost": 3,
+                        "points": 6
                     },
                     {
                         "id": 7,
-                        "name": "Player 7",
-                        "flag": "flag7.png",
+                        "name": "Hugo Calderano",
+                        "flag": "../brazil.png",
                         "p": 3,
                         "w": 1,
-                        "d": 0,
                         "l": 2,
-                        "gs": 3,
-                        "ga": 4,
-                        "gd": -1,
-                        "pts": 3
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
                     },
                     {
                         "id": 8,
-                        "name": "Player 8",
-                        "flag": "flag8.png",
+                        "name": "Patrick Franziska",
+                        "flag": "../germany.png",
                         "p": 3,
                         "w": 0,
-                        "d": 0,
                         "l": 3,
-                        "gs": 1,
-                        "ga": 5,
-                        "gd": -4,
-                        "pts": 0
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "C",
+                "players": [
+                    {
+                        "id": 9,
+                        "name": "Tomokazu Harimoto",
+                        "flag": "../japan.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 2,
+                        "points": 9
+                    },
+                    {
+                        "id": 10,
+                        "name": "Jang Woo-jin",
+                        "flag": "../south_korea.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 4,
+                        "points": 6
+                    },
+                    {
+                        "id": 11,
+                        "name": "Simon Gauzy",
+                        "flag": "../france.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 12,
+                        "name": "Quadri Aruna",
+                        "flag": "../nigeria.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "D",
+                "players": [
+                    {
+                        "id": 13,
+                        "name": "Lin Yun-Ju",
+                        "flag": "../taiwan.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 1,
+                        "points": 9
+                    },
+                    {
+                        "id": 14,
+                        "name": "Marcos Freitas",
+                        "flag": "../portugal.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 3,
+                        "points": 6
+                    },
+                    {
+                        "id": 15,
+                        "name": "Kristian Karlsson",
+                        "flag": "../sweden.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 16,
+                        "name": "Robert Gardos",
+                        "flag": "../austria.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "E",
+                "players": [
+                    {
+                        "id": 17,
+                        "name": "Xu Xin",
+                        "flag": "../china.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 2,
+                        "points": 9
+                    },
+                    {
+                        "id": 18,
+                        "name": "Liam Pitchford",
+                        "flag": "../england.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 4,
+                        "points": 6
+                    },
+                    {
+                        "id": 19,
+                        "name": "Omar Assar",
+                        "flag": "../egypt.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 20,
+                        "name": "Emmanuel Lebesson",
+                        "flag": "../france.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "F",
+                "players": [
+                    {
+                        "id": 21,
+                        "name": "Chuang Chih-Yuan",
+                        "flag": "../taiwan.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 2,
+                        "points": 9
+                    },
+                    {
+                        "id": 22,
+                        "name": "Andre Ho",
+                        "flag": "../canada.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 4,
+                        "points": 6
+                    },
+                    {
+                        "id": 23,
+                        "name": "Koki Niwa",
+                        "flag": "../japan.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 24,
+                        "name": "Paul Drinkhall",
+                        "flag": "../england.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "G",
+                "players": [
+                    {
+                        "id": 25,
+                        "name": "Mattias Falck",
+                        "flag": "../sweden.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 1,
+                        "points": 9
+                    },
+                    {
+                        "id": 26,
+                        "name": "Simon Gauzy",
+                        "flag": "../france.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 3,
+                        "points": 6
+                    },
+                    {
+                        "id": 27,
+                        "name": "Liang Jingkun",
+                        "flag": "../china.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 3,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 28,
+                        "name": "Darko Jorgic",
+                        "flag": "../slovenia.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
+                    }
+                ]
+            },
+            {
+                "name": "H",
+                "players": [
+                    {
+                        "id": 29,
+                        "name": "Jonathan Groth",
+                        "flag": "../denmark.png",
+                        "p": 3,
+                        "w": 3,
+                        "l": 0,
+                        "sets_won": 9,
+                        "sets_lost": 2,
+                        "points": 9
+                    },
+                    {
+                        "id": 30,
+                        "name": "Hugo Calderano",
+                        "flag": "../brazil.png",
+                        "p": 3,
+                        "w": 2,
+                        "l": 1,
+                        "sets_won": 7,
+                        "sets_lost": 4,
+                        "points": 6
+                    },
+                    {
+                        "id": 31,
+                        "name": "Liam Pitchford",
+                        "flag": "../england.png",
+                        "p": 3,
+                        "w": 1,
+                        "l": 2,
+                        "sets_won": 4,
+                        "sets_lost": 6,
+                        "points": 3
+                    },
+                    {
+                        "id": 32,
+                        "name": "Robert Gardos",
+                        "flag": "../austria.png",
+                        "p": 3,
+                        "w": 0,
+                        "l": 3,
+                        "sets_won": 2,
+                        "sets_lost": 9,
+                        "points": 0
                     }
                 ]
             }
         ],
-        "knockout": {
-            "roundOf16": [
-                {"player1": "Germany", "player2": "Belgium", "score": "3-2"},
-                {"player1": "Romania", "player2": "Georgia", "score": "3-0"},
-                {"player1": "Portugal", "player2": "Austria", "score": "3-1"},
-                {"player1": "Italy", "player2": "Albania", "score": "2-0"},
-                {"player1": "France", "player2": "Netherlands", "score": "3-1"},
-                {"player1": "England", "player2": "Czechia", "score": "3-2"},
-                {"player1": "Spain", "player2": "Poland", "score": "2-1"},
-                {"player1": "Denmark", "player2": "Ukraine", "score": "2-1"}
-            ],
-            "quarterfinals": [
-                {"player1": "Germany", "player2": "Romania", "score": "3-2"},
-                {"player1": "Portugal", "player2": "Italy", "score": "3-2"},
-                {"player1": "France", "player2": "England", "score": "3-2"},
-                {"player1": "Spain", "player2": "Denmark", "score": "2-1"}
-            ],
-            "semifinals": [
-                {"player1": "Germany", "player2": "Portugal", "score": "3-1"},
-                {"player1": "France", "player2": "Spain", "score": "2-1"}
-            ],
-            "final": {
-                "player1": "Germany", "player2": "France", "score": "3-2"
+        "knockout": [
+            {
+                "title": "Round of 16",
+                "matches": [
+                    {"id": 1, "player1": "Ma Long", "player2": "Robert Gardos", "score1": 3, "score2": 1},
+                    {"id": 2, "player1": "Timo Boll", "player2": "Kristian Karlsson", "score1": 3, "score2": 0},
+                    {"id": 3, "player1": "Jun Mizutani", "player2": "Marcos Freitas", "score1": 2, "score2": 3},
+                    {"id": 4, "player1": "Gustavo Tsuboi", "player2": "Lin Yun-Ju", "score1": 1, "score2": 3},
+                    {"id": 5, "player1": "Fan Zhendong", "player2": "Quadri Aruna", "score1": 3, "score2": 1},
+                    {"id": 6, "player1": "Dimitrij Ovtcharov", "player2": "Simon Gauzy", "score1": 3, "score2": 2},
+                    {"id": 7, "player1": "Hugo Calderano", "player2": "Jang Woo-jin", "score1": 3, "score2": 0},
+                    {"id": 8, "player1": "Patrick Franziska", "player2": "Tomokazu Harimoto", "score1": 2, "score2": 3}
+                ]
+            },
+            {
+                "title": "Quarterfinals",
+                "matches": [
+                    {"id": 9, "player1": "Ma Long", "player2": "Tomokazu Harimoto", "score1": 3, "score2": 2},
+                    {"id": 10, "player1": "Timo Boll", "player2": "Hugo Calderano", "score1": 3, "score2": 1},
+                    {"id": 11, "player1": "Fan Zhendong", "player2": "Dimitrij Ovtcharov", "score1": 3, "score2": 2},
+                    {"id": 12, "player1": "Lin Yun-Ju", "player2": "Marcos Freitas", "score1": 3, "score2": 1}
+                ]
+            },
+            {
+                "title": "Semifinals",
+                "matches": [
+                    {"id": 13, "player1": "Ma Long", "player2": "Fan Zhendong", "score1": 3, "score2": 1},
+                    {"id": 14, "player1": "Timo Boll", "player2": "Lin Yun-Ju", "score1": 2, "score2": 3}
+                ]
+            },
+            {
+                "title": "Final",
+                "matches": [
+                    {"id": 15, "player1": "Ma Long", "player2": "Lin Yun-Ju", "score1": 3, "score2": 2}
+                ]
             }
-        }
+        ]
 
-
-    };
-
+    }
     useEffect(() => {
-        setTournament(data);
+        const delay = 500; // 2 secunde
+        const timer = setTimeout(() => {
+            fetch(`/api/tournaments/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    setTournament(data);
+                    setLoading(false);
+                });
+        }, delay);
+
+        return () => clearTimeout(timer);
     }, [id]);
 
-    if (!tournament) return <div>Loading...</div>;
+    if (loading) {
+        return (
+            <Grid container justifyContent="center" alignItems="center" style={{minHeight: '80vh'}}>
+                <CircularProgress size={65} thickness={4}/>
+            </Grid>
+        );
+    }
 
-    return (
-        <div>
-            <Card>
+    if (!tournament) {
+        return <div>No tournament found!</div>;
+    }
+
+    /*
+    <Card>
                 <CardContent>
                     <Typography variant="h4">{tournament.name}</Typography>
                     <Typography variant="body1">{tournament.description}</Typography>
                 </CardContent>
             </Card>
-            <Divider style={{ margin: '20px 0' }} />
-            <GroupStage groups={tournament.groups} />
-            <Divider style={{ margin: '20px 0' }} />
-            <KnockoutStage stages={tournament.knockout} />
+
+     */
+    return (
+        <div>
+            <Divider style={{margin: '20px 0'}}/>
+            <GroupStage groups={tournament.groups}/>
+            <Divider style={{margin: '20px 0'}}/>
+            <KnockoutStage stages={tournament.knockoutStage}/>
         </div>
     );
 }
